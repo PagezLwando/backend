@@ -18,7 +18,7 @@ public class Investor {
     private Integer id;
     private String name;
     private String surname;
-    private String dob;
+    private String dateOfBirth;
     private String cellNumber;
     private String email;
     private String address_id;
