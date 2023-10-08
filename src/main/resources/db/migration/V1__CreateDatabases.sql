@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS investor (
+   id SERIAL PRIMARY KEY NOT NULL,
+   name VARCHAR(50) NOT NULL,
+   surname VARCHAR(50) NOT NULL,
+   date_of_birth DATE NOT NULL,
+   cell_number VARCHAR(255) NOT NULL,
+   email VARCHAR(255) NOT NULL,
+   address_id VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS product (
+   id SERIAL PRIMARY KEY NOT NULL,
+   type VARCHAR(255) NOT NULL,
+   current_balance NUMERIC(10,2) NOT NULL,
+   investor_id INTEGER NOT NULL REFERENCES investor(id)
+);
