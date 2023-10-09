@@ -16,8 +16,7 @@ import lombok.Setter;
 public class Product {
     @Id
     private Integer id;
-    private String name;
     private String type;
-    private String currentBalance;
+    private String current_balance;
     private int investor_id;
 }
