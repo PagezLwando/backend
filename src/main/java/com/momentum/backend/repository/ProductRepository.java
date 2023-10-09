@@ -9,6 +9,10 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
-    @Query(value = "exec spGetAllProducts", nativeQuery = true)
-    List<Product> getAllProducts();
+//    @Query(value = "call spGetAllProducts", nativeQuery = true)
+    @Query(value = "CALL spGetAllProducts()", nativeQuery = true)
+//    List<Product> getAllProducts();
+
+//    @Override
+    List<Product> findAll();
 }

@@ -9,6 +9,8 @@ import java.util.List;
 
 @Repository
 public interface InvestorRepository extends CrudRepository<Investor, Integer> {
-    @Query(value = "exec spGetAllInvestors", nativeQuery = true)
-    List<Investor> getAllInvestors();
+    @Override
+    List<Investor> findAll();
+//    @Query(value = "exec spGetAllInvestors", nativeQuery = true)
+//    List<Investor> getAllInvestors();
 }
