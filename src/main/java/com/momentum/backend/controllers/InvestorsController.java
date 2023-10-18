@@ -21,7 +21,7 @@ public class InvestorsController {
     @Path("getAll")
     @Produces(MediaType.APPLICATION_JSON)
     @GET
-//    @Transactional(timeout = 30)
+    @Transactional(timeout = 30)
     public APIResponse getAllInvestors() {
         try {
             List<Investor> investors = investorService.getAllInvestors();
@@ -33,6 +33,48 @@ public class InvestorsController {
         } catch (Exception e) {
             return new APIResponse(false, "Error occurred while trying to retrieve Investors details ",
                     null, Collections.singletonList(e.getMessage()));
+        }
+    }
+
+    @Path("addNew")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @POST
+//    @Transactional(timeout = 30)
+    public APIResponse addNewInvestor(Investor investor) {
+        try {
+            investorService.AddNewInvestor(investor);
+            return new APIResponse(true, "New investor created successfully.", null, null);
+        } catch (Exception e) {
+            return new APIResponse(false, "Error occurred while adding new investor.", null, Collections.singletonList(e.getMessage()));
+        }
+    }
+
+    @Path("update")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @PUT
+//    @Transactional(timeout = 30)
+    public APIResponse UpdateInvestor(Investor investor) {
+        try {
+            investorService.UpdateInvestor(investor);
+            return new APIResponse(true, "Investor "+investor.getName()+" successfully updated.", null, null);
+        } catch (Exception e) {
+            return new APIResponse(false, "Error occurred while updating investor. "+investor.getId(), null, Collections.singletonList(e.getMessage()));
+        }
+    }
+
+    @Path("delete")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @DELETE
+    @Transactional(timeout = 15)
+    public APIResponse deleteInvestor(Investor investor) {
+        try {
+            investorService.deleteInvestor(investor.getId());
+            return new APIResponse(true, "Investor deleted successfully.", null, null);
+        } catch (Exception e) {
+            return new APIResponse(false, "Error occurred while deleting investor.", null, Collections.singletonList(e.getMessage()));
         }
     }
 

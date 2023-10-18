@@ -1,0 +1,10 @@
+--CREATE OR REPLACE PROCEDURE addNewProduct()
+--LANGUAGE plpgsql
+--AS $$
+--BEGIN
+--INSERT INTO public.product(
+--	id, type, current_balance, investor_id)
+--	VALUES (?, ?, ?, ?);
+--  ORDER BY id ASC;
+--END;
+--$$;
