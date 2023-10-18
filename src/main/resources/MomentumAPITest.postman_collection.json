@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "139fbf08-d6b9-4cca-9146-8f2b194edad6",
+		"name": "MomentumAPITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11591831"
+	},
+	"item": [
+		{
+			"name": "Investor",
+			"item": [
+				{
+					"name": "getAll Investors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/momentum/investor/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "AddNew",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Thno\",\r\n    \"lastName\": \"Cuon\",\r\n    \"emailAddress\": \"conrad@thos.com\",\r\n    \"phoneNumber\": \"0628032324\",\r\n    \"dateOfBirth\": \"2001-09-24\",\r\n    \"address\": \"townsend street, jhb, 8212\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/investor/v1/post"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Thno\",\r\n    \"surname\": \"Cuon\",\r\n    \"date_of_birth\": \"2001-09-24\",\r\n    \"cell_number\": \"0628032324\",\r\n    \"email\": \"conrad@thos.com\",\r\n    \"address_id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/momentum/investor/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "getAllProducts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/momentum/product/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "AddNew",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"type\": \"RETIREMENT\",\r\n    \"current_balance\": \"320000.00\",\r\n    \"investor_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/investor/v1/addNew"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
